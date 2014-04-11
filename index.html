@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="appsfuel_code" content="171b51a656251b9"/>
+    <title>Battle Fish</title>
+
+    <!-- Define the viewport -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0, target-densitydpi=device-dpi">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="assets/apple-touch-icon-57x57-precomposed.png"
+          sizes="57x57"
+          rel="apple-touch-icon">
+    <link href="assets/apple-touch-icon-72x72-precomposed.png"
+          sizes="72x72"
+          rel="apple-touch-icon">
+    <link href="assets/apple-touch-icon-114x114-precomposed.png"
+          sizes="114x114"
+          rel="apple-touch-icon">
+    <link href="assets/apple-touch-icon-144x144-precomposed.png"
+          sizes="144x144"
+          rel="apple-touch-icon">
+
+    <style>* {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        html {
+            overflow: hidden;
+
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: #3082AF;
+            height: 100%;
+            width: 100%;
+            display: block;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        #canvas {
+            background-color: #3082AF;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -172px;
+            margin-left: -160px;
+            z-index: 1;
+        }
+
+        #loader {
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            margin-top: -25px;
+            margin-left: -25px;
+            background: url('assets/loader.gif') no-repeat 50% 50%;
+            display: block !important;
+        }
+    </style>
+    <script type="text/javascript">
+        var isGameLoaded = false;
+        function loadGameScript() {
+            var head= document.getElementsByTagName('head')[0];
+            var s= document.createElement('script');
+            s.type= 'text/javascript';
+            s.src= 'game.min.js';
+            s.onload = s.onreadystatechange = function() {
+                if (!this.readyState || s.readyState == 'loaded' || this.readyState == 'complete')
+                {
+                    if(!isGameLoaded) MyGame.init();
+                    isGameLoaded = true;
+                }
+            };
+            head.appendChild(s);
+        }
+    </script>
+</head>
+
+<body onload="loadGameScript()">
+    <canvas id="canvas" width="320" height="356"></canvas>
+    <div id="loader"></div>
+
+  // iad support
+  <script src="assets/CocoonJS.js"></script>
+  <script src="assets/CocoonJS_App.js"></script>
+  <script src="assets/CocoonJS_App_ForCocoonJS.js"></script>
+  <script src="assets/CocoonJS_Ad.js"></script>
+  <script>
+    bannerParams = {
+    "bannerAdUnit-iPhone": "7eb8eab93e1a4ceea14d4b60f80c33d4",
+    "bannerAdUnit-iPad": "4503dda262874456a1977441b4d7ea85",
+    refresh: 65 //Whatever you want
+    }
+    banner = CocoonJS.Ad.createBanner(bannerParams);
+    banner2 = CocoonJS.Ad.createBanner(bannerParams);
+
+    banner.onBannerReady.addEventListener(function(width, height)
+    {
+    var x=window.innerWidth - width / 2 , y=0; //Middle of screen
+    var rect = new CocoonJS.Ad.Rectangle(x, y, width, height);
+    banner.setRectangle(rect);
+    banner.showBanner();
+    });
+
+    banner2.onBannerReady.addEventListener(function(width, height)
+    {
+    var x2=window.innerWidth - width / 2 , y2=window.innerHeight - 50;
+    var rect2 = new CocoonJS.Ad.Rectangle(x2, y2, width, height);
+    banner2.setRectangle(rect2);
+    banner2.showBanner();
+    });
+
+  </script>
+
+</body>
+
+</html>
