@@ -110,7 +110,7 @@
 
     banner.onBannerReady.addEventListener(function(width, height)
     {
-    var x=window.innerWidth / 2, y=0; //Middle of screen
+    var x=window.innerWidth / 2 - width / 2, y=0; //Middle of screen
     var rect = new CocoonJS.Ad.Rectangle(x, y, width, height);
     banner.setRectangle(rect);
     banner.showBanner();
@@ -118,7 +118,7 @@
 
     banner2.onBannerReady.addEventListener(function(width, height)
     {
-    var x2=window.innerWidth, y2=window.innerHeight - 100;
+    var x2=window.innerWidth / 2 - width / 2, y2=window.innerHeight - 100;
     var rect2 = new CocoonJS.Ad.Rectangle(x2, y2, width, height);
     banner2.setRectangle(rect2);
     banner2.showBanner();
