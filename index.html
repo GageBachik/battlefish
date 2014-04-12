@@ -118,7 +118,7 @@
 
     banner2.onBannerReady.addEventListener(function(width, height)
     {
-    var x2=window.innerWidth / 2 - width / 2, y2=window.innerHeight - 100;
+    var x2=window.innerWidth / 2 - width / 2, y2=window.innerHeight - height;
     var rect2 = new CocoonJS.Ad.Rectangle(x2, y2, width, height);
     banner2.setRectangle(rect2);
     banner2.showBanner();
